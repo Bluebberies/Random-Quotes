@@ -3,8 +3,8 @@ import ReactPaginate from "react-paginate";
 import Spinner from "react-bootstrap/Spinner";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Quotes = ({ list, loaded, quote, quotesList, handleClick }) => {
-  //Pagination
+const Quotes = ({ list, loaded, quote, quotesList, handleClick }) => { 
+  //Paginations
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
