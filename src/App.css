@@ -1,38 +1,230 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
+  flex-direction: column;
+}
+
+.App button {
+  margin-left: auto;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 18px;
+  transition: .5s;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.App button span{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+  color: #4F4F4F;
+}
+
+.App button i{
+  color: #4F4F4F;
+}
+
+.App button:hover {
+  font-size: 25px;
+}
+
+.App .quotes{
+  display: flex;
+  height: 85vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App .quotes p{
+  max-width: 444px;
+  border-left: 8px solid #F7DF94;
+  padding-left: 60px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 120%;
+  color: #000000;  
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App .quotes .infos{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 29px 0px 29px;
+  margin-left: 45px;
+  margin-top: 50px;
+  width: 402px;
+  height: 100px;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.App .quotes .infos:hover{
+  background-color: #333333;
+}
+
+
+.App .quotes .infos .infoName{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.App .quotes .infos .infoName h3{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+}
+
+.App .quotes .infos .infoName h4{
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.App .quotes .infos i{
+  visibility: hidden;
+  color: #F2F2F2;
+}
+
+.App .quotes .infos:hover i{
+  visibility: visible;
+}
+
+.App .quotes .infos:hover .infoName h3{
+  color: #F2F2F2; 
+}
+
+.App .quotes .infos:hover .infoName h4{
+  color: #828282;
+}
+
+.App footer{
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: top;
+}
+
+.App footer p{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #828282;
+}
+
+.App footer p a{
+  color: #828282;
+  font-weight: 900;
+}
+
+.App .quotesByAuthor{
+  display: flex;
+  height: 100%;
+  padding-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.App .quotesByAuthor h3{
+  margin-left: -10rem;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  color: #333333;  
+}
+
+.App .quotesByAuthor .authorQuotes{
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+}
+
+.App .quotesByAuthor .authorQuotes p{
+  max-width: 444px;
+  border-left: 8px solid #F7DF94;
+  padding-left: 60px;
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 120%;
+  color: #000000;  
+}
+
+.pagination{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5rem;
+  font-size: 1.5rem;
+  gap: 5px;
+}
+
+.pagination .page-num{
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-weight: bold;
+  user-select: none;
+  text-decoration: none;
+}
+
+.pagination .page-num:hover{
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.pagination .active{
+  background-color: #F7DF94;
+  
+}
+
+.pagination .disabled{
+ background-color: gray;
+ color: #ffffff;
+ cursor: not-allowed;
+} 
+
+.pagination .disabled:hover{
+  background-color: gray;
+  color: #ffffff;
+}
+
+.spinner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5rem;
+  gap: 20px;
+}
+
+.spinner p{
+  font-family: 'Raleway';
+  font-size: 44px;
 }

@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import getReq from './services/httpService'
+import './App.css'
+import Footer from './components/footer'
+import RefreshBtn from './components/refreshBtn'
+import Quotes from './components/quotes'
 
-function App() {
+function App () {
+  const [quote, setQuote] = useState([])
+  const [quotesList, setQuotesList] = useState([])
+  const [list, setList] = useState(false)
+  const [loaded, setLoaded] = useState(true)
+
+  async function getQuotesByAuthor (author) {
+    let url = `https://api.quotable.io/quotes?author=${author}`
+    try {
+      const { data } = await getReq(url)
+      setQuotesList(data.results)
+      setLoaded(true)
+      setList(true)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function handleClick () {
+    setLoaded(false)
+    const author = quote.author
+    getQuotesByAuthor(author)
+  }
+
+  async function handleRefresh () {
+    setLoaded(false)
+    setList(false)
+    const url = 'https://api.quotable.io/random'
+    try {
+      const { data } = await getReq(url)
+      console.log(data)
+      setQuote(data)
+      setLoaded(true)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    handleRefresh()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <RefreshBtn handleRefresh={handleRefresh} />
+      <Quotes
+        list={list}
+        loaded={loaded}
+        quote={quote}
+        quotesList={quotesList}
+        handleClick={handleClick}
+      />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
