@@ -6,7 +6,12 @@ import RefreshBtn from './components/refreshBtn'
 import Quotes from './components/quotes'
 
 function App () {
-  const [quote, setQuote] = useState([])
+  const [quote, setQuote] = useState({
+    content: '',
+    author: '',
+    tags: []
+  })
+
   const [quotesList, setQuotesList] = useState([])
   const [list, setList] = useState(false)
   const [loaded, setLoaded] = useState(true)
@@ -34,7 +39,6 @@ function App () {
     const url = 'https://api.quotable.io/random'
     try {
       const { data } = await getReq(url)
-      console.log(data)
       setQuote(data)
       setLoaded(true)
     } catch (error) {

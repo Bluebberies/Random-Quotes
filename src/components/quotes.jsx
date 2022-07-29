@@ -61,7 +61,7 @@ const Quotes = ({ list, loaded, quote, quotesList, handleClick }) => {
         <div onClick={handleClick} className="infos">
           <div className="infoName">
             <h3>{quote.author}</h3>
-            <h4>{quote.tags}</h4>
+            <h4>{quote.tags[0]}</h4>
           </div>
           <i className="fa-solid fa-arrow-right-long"></i>
         </div>
