@@ -11,8 +11,8 @@ function App () {
   const [list, setList] = useState(false)
   const [loaded, setLoaded] = useState(true)
 
-  async function getQuotesByAuthor (author) {
-    let url = `https://api.quotable.io/quotes?author=${author}`
+  async function getQuotesByAuthor () {
+    let url = `https://api.quotable.io/quotes?author=${quote.author}`
     try {
       const { data } = await getReq(url)
       setQuotesList(data.results)
@@ -25,8 +25,7 @@ function App () {
 
   function handleClick () {
     setLoaded(false)
-    const author = quote.author
-    getQuotesByAuthor(author)
+    getQuotesByAuthor()
   }
 
   async function handleRefresh () {
