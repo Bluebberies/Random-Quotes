@@ -120,8 +120,6 @@
 .App footer{
   position: absolute;
   bottom: 0;
-  left: 40%;
-  margin: auto;
   display: flex;
   align-items: center;
   justify-content: center;
