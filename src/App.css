@@ -120,12 +120,11 @@
 .App footer{
   position: absolute;
   bottom: 0;
-  margin-top: 5rem;
+  left: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: top;
-}
+ }
 
 .App footer p{
   font-family: 'Montserrat';
